@@ -1,11 +1,11 @@
 <template>
 	<div id="app">
 		<IPhone>
-			<!-- <HomeScreen :apps="apps" :hotbarApps="hotbarApps" :notification="notification" :onAppClick="onAppClick" v-if="currentScreen === 'HOME'"></HomeScreen> -->
-			<!-- <RadioScreen v-if="currentScreen === 'RADIO'"></RadioScreen> -->
-			<!-- <GarageScreen v-if="currentScreen === 'GARAGE'"></GarageScreen> -->
-			<!-- <BankingScreen v-if="currentScreen === 'BANKING'"></BankingScreen> -->
-      <WhatsAppScreen></WhatsAppScreen>
+			<HomeScreen :apps="apps" :hotbarApps="hotbarApps" :notification="notification" :onAppClick="onAppClick" v-if="currentScreen === 'HOME'"></HomeScreen>
+			<RadioScreen v-if="currentScreen === 'RADIO'"></RadioScreen>
+			<GarageScreen v-if="currentScreen === 'GARAGE'"></GarageScreen>
+			<BankingScreen v-if="currentScreen === 'BANKING'"></BankingScreen>
+      <!-- <WhatsAppScreen></WhatsAppScreen> -->
 		</IPhone>
 	</div>
 </template>
