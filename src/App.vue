@@ -1,121 +1,58 @@
 <template>
 	<div id="app">
 		<IPhone>
-			<HomeScreen :apps="apps" :hotbarApps="hotbarApps" :notification="notification" :onAppClick="onAppClick" v-if="currentScreen === 'HOME'"></HomeScreen>
-			<RadioScreen v-if="currentScreen === 'RADIO'"></RadioScreen>
-			<GarageScreen v-if="currentScreen === 'GARAGE'"></GarageScreen>
-			<BankingScreen v-if="currentScreen === 'BANKING'"></BankingScreen>
-      <!-- <WhatsAppScreen></WhatsAppScreen> -->
+			<HomeApp :onAppClick="onAppClick" v-if="isAppActive('Home')"></HomeApp>
+			<RadioApp v-if="isAppActive('Radio')"></RadioApp>
+			<GarageApp v-if="isAppActive('Garage')"></GarageApp>
+			<BankingApp v-if="isAppActive('Banking')"></BankingApp>
+			<WhatsappApp v-if="isAppActive('Whatsapp')"></WhatsappApp>
+			<iMessageApp v-if="isAppActive('iMessage')"></iMessageApp>
+			<ProfileApp v-if="isAppActive('profile')"></ProfileApp>
+			<CallApp v-if="isAppActive('call')"></CallApp>
 		</IPhone>
 	</div>
 </template>
 
 <script>
 import IPhone from "./components/IPhone.vue";
-import HomeScreen from "./components/screens/HomeScreen.vue";
-import RadioScreen from "./components/screens/RadioScreen.vue";
 
-import appstoreIcon from "./assets/img/app-icons/appstore.svg";
-import bankingIcon from "./assets/img/app-icons/banking.svg";
-import callIcon from "./assets/img/app-icons/call.svg";
-import garageIcon from "./assets/img/app-icons/garage.svg";
-import iMessageIcon from "./assets/img/app-icons/imessage.svg";
-import instagramIcon from "./assets/img/app-icons/instagram.svg";
-import lifeInvaderIcon from "./assets/img/app-icons/life-invader.svg";
-import profileIcon from "./assets/img/app-icons/profile.svg";
-import radioIcon from "./assets/img/app-icons/radio.svg";
-import settingsIcon from "./assets/img/app-icons/settings.svg";
-import shopIcon from "./assets/img/app-icons/shop.svg";
-import twitterIcon from "./assets/img/app-icons/twitter.svg";
-import whatsupIcon from "./assets/img/app-icons/whatsup.svg";
-import GarageScreen from "./components/screens/GarageScreen.vue";
-import BankingScreen from "./components/screens/BankingScreen.vue";
-import WhatsAppScreen from './components/screens/WhatsAppScreen.vue';
+import HomeApp from "./components/apps/Home.vue";
+import RadioApp from "./components/apps/radio/RadioApp.vue";
+import GarageApp from "./components/apps/garage/GarageApp.vue";
+import BankingApp from "./components/apps/banking/BankingApp.vue";
+import WhatsappApp from "./components/apps/whatsapp/WhatsappApp.vue";
+import iMessageApp from "./components/apps/imessage/iMessageApp.vue";
+import CallApp from "./components/apps/call/CallApp.vue";
+import ProfileApp from "./components/apps/profile/ProfileApp.vue";
 
 export default {
 	name: "App",
 
 	components: {
 		IPhone,
-		HomeScreen,
-		RadioScreen,
-		GarageScreen,
-		BankingScreen,
-    WhatsAppScreen
+		HomeApp,
+		RadioApp,
+		GarageApp,
+		BankingApp,
+		WhatsappApp,
+		iMessageApp,
+		CallApp,
+    ProfileApp,
 	},
-
-  methods: {
-    onAppClick: function(screenName) {
-      this.currentScreen = screenName;
-    }
-  },
 
 	data: function () {
 		return {
-      currentScreen: "HOME",
-			notification: {
-				icon: whatsupIcon,
-				title: "What's the occasion?",
-				text: "Can you bring a big salad? I'm on dessert duty.",
-				time: "3m ago",
-			},
-			apps: [
-				{
-					label: "RADIO",
-					icon: radioIcon,
-				},
-				{
-					label: "LIFEINVADER",
-					icon: lifeInvaderIcon,
-				},
-				{
-					label: "GARAGE",
-					icon: garageIcon,
-				},
-				{
-					label: "BANKING",
-					icon: bankingIcon,
-				},
-				{
-					label: "TWITTER",
-					icon: twitterIcon,
-				},
-				{
-					label: "PROFILE",
-					icon: profileIcon,
-				},
-				{
-					label: "iMESSAGE",
-					icon: iMessageIcon,
-				},
-				{
-					label: "WHATSUP",
-					icon: whatsupIcon,
-				},
-				{
-					label: "INSTAGRAM",
-					icon: instagramIcon,
-				},
-			],
-			hotbarApps: [
-				{
-					label: "CALL",
-					icon: callIcon,
-				},
-				{
-					label: "APP STORE",
-					icon: appstoreIcon,
-				},
-				{
-					label: "SHOP",
-					icon: shopIcon,
-				},
-				{
-					label: "SETTINGS",
-					icon: settingsIcon,
-				},
-			],
+			activeAppName: "whatsapp",
 		};
+	},
+
+	methods: {
+		isAppActive: function (appName) {
+			return appName.toLowerCase() === this.activeAppName.toLowerCase();
+		},
+		onAppClick: function (appName) {
+			this.activeAppName = appName;
+		},
 	},
 };
 </script>
