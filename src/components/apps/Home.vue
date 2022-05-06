@@ -16,12 +16,12 @@
 				:key="index"
 				:icon="app.icon"
 				:label="app.label"
-				:onClick="() => onAppClick(app.label)"
+        @click.native="() => onAppClick(app.label)"
 			></AppButton>
 		</div>
 		<div class="home-app__hotbar">
 			<div class="home-app__hotbar-apps">
-				<AppButton v-for="(app, index) in hotbarApps" :key="index" :icon="app.icon"></AppButton>
+				<AppButton v-for="(app, index) in hotbarApps" :key="index" :icon="app.icon" @click.native="() => onAppClick(app.label)"></AppButton>
 			</div>
 		</div>
 	</div>
@@ -60,7 +60,7 @@ export default {
 					icon: radioIcon,
 				},
 				{
-					label: "LIFEINVADER",
+					label: "LIFE-INVADER",
 					icon: lifeInvaderIcon,
 				},
 				{
@@ -98,7 +98,7 @@ export default {
 					icon: callIcon,
 				},
 				{
-					label: "APP STORE",
+					label: "APPSTORE",
 					icon: appstoreIcon,
 				},
 				{

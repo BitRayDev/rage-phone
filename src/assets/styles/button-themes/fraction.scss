@@ -1,0 +1,53 @@
+.button_theme_fraction {
+  &-primary {
+    color: white;
+
+    padding: .35vw .5vw;
+
+    font-size: .7vw;
+    font-weight: 500;
+
+    background: linear-gradient(93.6deg, #40FFF4 0%, #40C6FF 17.61%, #40A3FF 40.74%, #408CFF 58.35%, #FFA6F6 100%);
+    border-radius: 100vw;
+
+    box-shadow: 0px 0px 2vw #409AFF;
+  }
+
+  &-secondary {
+    color: white;
+
+    padding: .35vw .5vw;
+
+    font-size: .7vw;
+    font-weight: 500;
+
+    background: #7D40FF;
+    border-radius: 100vw;
+
+    box-shadow: 0px 0px 2vw #7D40FF;
+  }
+
+  &-danger {
+    color: white;
+
+    padding: .35vw .5vw;
+
+    font-size: .7vw;
+    font-weight: 500;
+
+    background: linear-gradient(93.6deg, #FF4040 0%, #FFA6F6 100%);
+    border-radius: 100vw;
+  }
+
+  &-success {
+    color: white;
+
+    padding: .35vw .5vw;
+
+    font-size: .7vw;
+    font-weight: 500;
+
+    background: linear-gradient(93.6deg, #69BB29 0%, #93CA85 100%);
+    border-radius: 100vw;
+  }
+}

@@ -1,5 +1,5 @@
 <template>
-	<button :class="`button button_theme_${theme}`" @click="onClick">
+	<button :class="`button button_theme_${theme}`">
 		<slot />
 	</button>
 </template>
@@ -10,11 +10,7 @@ export default {
 		theme: {
 			type: String,
 			required: false,
-		},
-    onClick: {
-      type: Function,
-      required: false
-    }
+		}
 	},
 };
 </script>
@@ -38,4 +34,5 @@ export default {
 }
 
 @import "../assets/styles/button-themes/banking.scss";
+@import "../assets/styles/button-themes/fraction.scss";
 </style>

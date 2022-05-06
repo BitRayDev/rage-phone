@@ -1,7 +1,7 @@
 <template>
 	<div class="iphone">
 		<img class="iphone__bangs" src="@/assets/img/iphone-bangs.svg" />
-    <div class="iphone__status-bar status-bar">
+    <div class="iphone__status-bar status-bar" :style="{filter: statusBarTheme == 'black' ? 'invert(1)' : ''}">
       <div class="status-bar__section">
         <img class="status-bar__wifi-icon" src="@/assets/img/icons/wifi.svg">
         <p class="status-bar__label">C-OS</p>
@@ -14,11 +14,17 @@
 		<div class="iphone__view">
 			<slot />
 		</div>
+    <div class="iphone__bottom-line" :style="{backgroundColor: bottomLineColor}" @click="$emit('go-back')"/>
 	</div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    bottomLineColor: String,
+    statusBarTheme: String,
+  }
+};
 </script>
 
 <style lang="scss">
@@ -92,5 +98,17 @@ export default {};
 
 		overflow: hidden;
 	}
+  &__bottom-line {
+    position: absolute;
+    bottom: 1.25vw;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 50%;
+    height: .4vw;
+
+    background-color: white;
+    border-radius: 100vw;
+  }
 }
 </style>

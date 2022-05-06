@@ -39,7 +39,7 @@
 				<input class="banking-send-money__input" placeholder="Amount" v-model="sendMoney.value" />
 			</div>
 		</div>
-		<Button theme="banking" :onClick="onSendMoneyClick">Send Money</Button>
+		<Button theme="banking" @click.native="onSendMoneyClick">Send Money</Button>
 		<div class="banking-app__section banking-section" v-if="isTransactionsSectionActive">
 			<p class="banking-section__label">History of transactions</p>
 			<div class="banking-app__transactions">

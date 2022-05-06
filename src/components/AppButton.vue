@@ -1,5 +1,5 @@
 <template>
-	<div class="app-button" @click="onClick">
+	<div class="app-button">
 		<img class="app-button__icon" :src="icon" />
 		<p class="app-button__label" v-if="label">{{label}}</p>
 	</div>
@@ -12,8 +12,7 @@ export default {
 			type: String,
 			required: false,
 		},
-		icon: String,
-    onClick: Function
+		icon: String
 	},
 };
 </script>
